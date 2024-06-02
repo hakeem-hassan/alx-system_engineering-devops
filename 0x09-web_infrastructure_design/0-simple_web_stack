@@ -18,3 +18,7 @@ The database (e.g., MySQL) stores and manages data that the application needs to
 
 What is the server using to communicate with the computer of the user requesting the website
 The server uses the HTTP or HTTPS protocol to communicate with the user's computer (client). This protocol defines how requests and responses are formatted and transmitted over the internet, enabling web browsers and servers to exchange information.
+
+Single Point of Failure (SPOF): The entire system depends on one server, meaning if it fails, the whole website goes down.
+Downtime During Maintenance: Maintenance activities, such as deploying new code or restarting the web server, cause the website to be temporarily unavailable.
+Scalability Issues: The server cannot handle a large volume of incoming traffic, leading to performance bottlenecks and potential service disruptions.

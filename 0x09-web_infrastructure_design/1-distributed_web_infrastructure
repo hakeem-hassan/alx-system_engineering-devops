@@ -1,0 +1,28 @@
+For every additional element, why you are adding it
+Load Balancer: Added to distribute incoming traffic across multiple servers, enhancing reliability, scalability, and ensuring no single server is overwhelmed.
+Additional Servers: Added to handle increased traffic and provide redundancy, improving the overall performance and fault tolerance of the web infrastructure.
+Database Cluster (Primary-Replica): Added to ensure high availability and scalability of the database. The primary node handles writes, while replicas handle read operations, distributing the load and improving read performance.
+What distribution algorithm your load balancer is configured with and how it works
+Round Robin: The load balancer distributes incoming requests sequentially across the available servers. This means that each server gets an equal share of the requests in a rotating order, ensuring a balanced load distribution.
+Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both
+Active-Active Setup: All servers are active and handle traffic simultaneously. This setup maximizes resource utilization and provides better performance and fault tolerance.
+Active-Passive Setup: One server (active) handles the traffic while the other server (passive) remains on standby. If the active server fails, the passive server takes over. This setup ensures high availability but may not utilize resources as efficiently as an Active-Active setup.
+How a database Primary-Replica (Master-Slave) cluster works
+Primary-Replica (Master-Slave) Cluster: The primary (master) node handles all write operations and replicates the data to one or more replica (slave) nodes. Replica nodes handle read operations. This setup helps in load balancing read requests and ensures data redundancy and availability.
+What is the difference between the Primary node and the Replica node in regard to the application
+Primary Node: Handles all write and update operations from the application. It is the authoritative source of data, ensuring consistency and integrity.
+Replica Node: Handles read operations. It receives data from the primary node and provides read redundancy, improving read performance and availability without affecting the primary node's performance.
+
+Single Points of Failure (SPOF):
+The entire web infrastructure relies on one server. If this server fails, the website will become completely inaccessible.
+Security Issues:
+No Firewall: The server is vulnerable to unauthorized access and attacks, as there is no firewall to filter and block malicious traffic.
+No HTTPS: Data transmitted between the user and the server is not encrypted, making it susceptible to interception and eavesdropping.
+No Monitoring:
+There are no systems in place to monitor server performance, uptime, or potential issues. Problems may go unnoticed until they cause significant disruption, leading to delays in detecting and resolving issues.
+
+
+
+
+
+
