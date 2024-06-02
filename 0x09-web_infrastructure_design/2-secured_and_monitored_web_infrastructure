@@ -1,0 +1,30 @@
+For Every Additional Element, Why You Are Adding It
+Web Server (Nginx): Handles incoming HTTP requests, serves static content, and forwards dynamic requests to the application server.
+Application Server: Executes application code to process requests, interact with the database, and generate responses.
+Database (MySQL): Stores and retrieves persistent data required by the application.
+Firewall: Protects the server by controlling incoming and outgoing network traffic based on security rules.
+What Are Firewalls For
+Firewalls are used to protect networked systems by filtering traffic based on predefined security rules, preventing unauthorized access, and mitigating various types of cyber threats.
+Why Is the Traffic Served Over HTTPS
+Serving traffic over HTTPS encrypts data transmitted between the client and server, ensuring privacy, data integrity, and protection against man-in-the-middle attacks.
+What Monitoring Is Used For
+Monitoring is used to track the performance, availability, and health of the web infrastructure, enabling quick detection and resolution of issues to maintain optimal operation.
+How the Monitoring Tool Is Collecting Data
+Monitoring tools collect data by periodically querying system metrics, logs, and application performance data through agents installed on the server, APIs, or network probes.
+Explain What to Do If You Want to Monitor Your Web Server QPS (Queries Per Second)
+To monitor QPS, configure your monitoring tool to collect and analyze server logs or use instrumentation in the application to record the number of requests handled per second. Set up alerts to notify you if QPS exceeds or drops below expected thresholds.
+
+
+
+
+
+1. Terminating SSL at the Load Balancer Level
+Security Concerns: When SSL (Secure Sockets Layer) termination happens at the load balancer, the traffic between the load balancer and the backend servers is not encrypted. This can expose sensitive data to potential interception or tampering if the internal network is compromised.
+Compliance Issues: Some regulatory standards require end-to-end encryption, meaning the data should remain encrypted until it reaches its final destination. Terminating SSL at the load balancer does not meet this requirement.
+2. Having Only One MySQL Server Capable of Accepting Writes
+Single Point of Failure: Relying on a single MySQL server for write operations creates a single point of failure. If the server goes down, the entire system's ability to handle write operations is disrupted, leading to potential data loss or downtime.
+Scalability Limits: One server handling all write operations can become a bottleneck, limiting the system’s ability to scale as the volume of write operations increases. This can lead to performance degradation and slow response times.
+3. Having Servers with All the Same Components (Database, Web Server, and Application Server)
+Resource Contention: When all components (database, web server, and application server) run on the same server, they compete for the same resources (CPU, memory, disk I/O). This can lead to performance issues, as high demand on one component can negatively impact the others.
+Lack of Specialization: Servers designed to handle specific tasks (e.g., dedicated database servers or application servers) can be optimized for those tasks. Having all components on the same server prevents this optimization, leading to less efficient use of resources.
+Maintenance Complexity: Managing and updating servers with all components is more complex. Any update or change to one component can affect the others, making maintenance and troubleshooting more difficult and risky.
