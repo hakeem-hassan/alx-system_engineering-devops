@@ -1,0 +1,20 @@
+What is a server
+A server is a computer or system that provides resources, data, services, or programs to other computers, known as clients, over a network. Servers perform various tasks such as hosting websites, managing emails, storing files, or running applications.
+
+What is the role of the domain name
+A domain name serves as a human-readable address that users can enter into their web browsers to access a website. It translates into an IP address, which is the actual address used by computers to locate and communicate with the server hosting the website.
+
+What type of DNS record www is in www.foobar.com
+The "www" in www.foobar.com is typically an A record (Address Record) or a CNAME record (Canonical Name Record) in DNS. An A record maps the domain name to the server's IP address, while a CNAME record points the domain name to another domain name.
+
+What is the role of the web server
+The role of the web server (e.g., Nginx) is to handle incoming HTTP/HTTPS requests from users' browsers, serve static content (like HTML, CSS, JavaScript), and forward dynamic requests to the application server for further processing.
+
+What is the role of the application server
+The application server runs the backend logic of a website or application. It processes dynamic content, executes application code, interacts with databases, and generates the necessary responses to be sent back to the web server.
+
+What is the role of the database
+The database (e.g., MySQL) stores and manages data that the application needs to function, such as user information, content, and transaction records. It allows the application server to perform queries and updates to handle user requests.
+
+What is the server using to communicate with the computer of the user requesting the website
+The server uses the HTTP or HTTPS protocol to communicate with the user's computer (client). This protocol defines how requests and responses are formatted and transmitted over the internet, enabling web browsers and servers to exchange information.
