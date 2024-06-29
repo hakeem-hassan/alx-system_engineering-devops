@@ -5,7 +5,7 @@ path    =>'/tmp/school',
 mode    =>'0744',
 owner   =>'www-data',
 group   =>'www-data',
-contenr =>'I love puppet',
+content =>'I love puppet',
 }
 
 
