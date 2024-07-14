@@ -32,20 +32,3 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
-
-frontend hakeemhassan690-frontend
-        bind *:80
-        mode http
-        http-request redirect scheme https code 301 unless { ssl_fc }
-        http-request set-header X_Forwarded-Proto http
-        default_backend hakeemhassan690-backend
-
-frontend hakeemhassan690-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/www.hakeemhassan690.tech.pem
-        http-request set-header X-Forwarded-Proto https
-        default_backend hakeemhassan690-backend
-
-backend hakeemhassan690-backend
-        balance roundrobin
-        server 482040-web-01 34.232.72.157 check
-        server 482040-web-02 34.207.154.249 check
