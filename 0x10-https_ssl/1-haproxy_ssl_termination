@@ -32,3 +32,29 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
+
+frontend www-http
+   bind *:80
+   mode http
+   http-request add-header X-Forwarded-Proto http
+   default_backend www-backend
+
+frontend www-https
+   mode http
+   bind *:443 ssl crt /etc/haproxy/certs
+   http-request add-header X-Forwarded-Proto http
+   acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+   use_backend letsencrypt-backend if letsencrypt-acl
+   default_backend www-backend
+
+backend www-backend
+    mode http
+    http-request set-header X-Forwarded-For %[src]
+    balance roundrobin
+    redirect scheme https if !{ ssl_fc }
+    server 482040-web-01 34.232.72.157:80 check
+    server 482040-web-02 34.207.154.249:80 check
+
+backend letsencrypt-backend
+   mode http
+   server letsencrypt 127.0.0.1:54321
