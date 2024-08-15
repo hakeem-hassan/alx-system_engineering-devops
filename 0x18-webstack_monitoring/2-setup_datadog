@@ -1,11 +1,1 @@
-from datadog import initialize, api
-
-options = {
-    'api_key': 'da5474f7d60749bcdc30f8f320316d7d',
-    'app_key': '0cf2415fd227cdeb779782335f970eb0bd5cae69'
-}
-
-initialize(**options)
-
-
-print(api.Dashboard.delete(dashboard_id))
+https://app.datadoghq.com/monitors/151383216?view=spans
